@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  font-family: 'Inter',sans-serif;
+  background-color: theme('colors.grand.cream');
+  color:theme('colors.grand.slate');
+  min-height: 100vh;
+} 
