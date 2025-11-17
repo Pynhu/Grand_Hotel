@@ -69,7 +69,7 @@ const handleKeyPress=(e: React.KeyboardEvent)=>{
     }
 }
      return (
-       <Card className="w-full max-w-3xl mx-auto">
+       <Card className="w-full max-w-3xl mx-auto backdrop-blur-lg bg-white/95">
          <div className="border-b border-gray-200 pb-4 mb-4">
            <h2 className="text-2xl font-bold text-grand-navy flex items-center gap-2">
              💬 <span className="text-grand-gold">Grand</span> AI Assistant

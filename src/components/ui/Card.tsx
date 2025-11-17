@@ -33,7 +33,7 @@ const Card=({
     const hoverClass=hover?'hover:shadow-xl transition-shadow':''
 
     return(
-        <div className={`bg-white rounded-3xl ${paddingClass} ${shadowClass} ${hoverClass} ${className}`}>
+        <div className={`rounded-3xl ${paddingClass} ${shadowClass} ${hoverClass} ${className}`}>
             {children}
         </div>
     )

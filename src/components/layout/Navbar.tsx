@@ -1,6 +1,7 @@
-import { Link,NavLink } from "react-router-dom";
+import { Link,NavLink,useNavigate} from "react-router-dom";
 import { useState } from "react";
 import Button from "../ui/Button";
+import UserMenu from "./UserMenu";
 
 const Links=[
     {to: '/',label:"Strona Główna"},
@@ -10,9 +11,18 @@ const Links=[
 ]
 
 const Navbar=()=>{
+    const navigate=useNavigate()
     const [mobileMenuOpen,setMobileMenuOpen]=useState(false)
+    const [isLoggedIn,setIsLoggedIn]=useState(false)
+    const [userName,setUserName]=useState("Piotr")
+
+    const handLogOut=()=>{
+        setIsLoggedIn(false)
+        navigate('/')
+        alert("wylogowano")
+    }
     return(
-        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-md">
+        <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-lg shadow-xl border-b border-gray-100">
             <div className="mx-auto grid grid-cols-3 max-w-[1600px] items-center  px-24 py-4">
                 <Link
                     to="/"
@@ -38,13 +48,20 @@ const Navbar=()=>{
                         </NavLink>
                     ))}
                 </nav>
+
                 <div className="hidden md:block justify-self-end">
-                    <Button
-                    variant="linie"
-                    size="male"
-                    onClick={()=>alert('login za niedlugo')}>
-                        Zaloguj sie
-                    </Button>
+                    {isLoggedIn?(
+                        <UserMenu
+                            userName={userName}
+                            onLogout={handLogOut}/>
+                    ):(
+                        <Button
+                        variant="linie"
+                        size="male"
+                        onClick={()=>setIsLoggedIn(true)}>
+                            Zaloguj sie
+                        </Button>
+                    )}
 
                 </div>
             </div>

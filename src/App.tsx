@@ -6,6 +6,8 @@ import RoomsPage from './pages/RoomsPage'
 import BookingPage from './pages/BookingPage'
 import RestaurantPage from './pages/RestaurantPage'
 import NotFoundPage from './pages/NotFoundPage'
+import ProfilePage from './pages/MyProfilePage'
+import MyBookingsPage from './pages/MyBookingsPage'
 
 const App=()=>(
   <Routes>
@@ -16,6 +18,8 @@ const App=()=>(
       <Route path="/booking" element={<BookingPage/>}/>
       <Route path="/restaurant" element={<RestaurantPage/>}/>
       <Route path="*" element={<NotFoundPage/>}/>
+      <Route path="/profile" element={<ProfilePage/>}/>
+      <Route path="/my-bookings" element={<MyBookingsPage/>} />
     </Route>
   </Routes>
 )

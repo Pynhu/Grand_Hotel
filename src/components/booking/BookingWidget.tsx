@@ -14,7 +14,7 @@ const Booking = ()=>{
     }
 
     return(
-        <Card className="w-full max-w-3xl mx-auto" padding="small">
+        <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg rounded-xl" padding="small">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
                 <Input
                     label="Data przyjazdu"

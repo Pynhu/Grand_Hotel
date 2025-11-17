@@ -6,6 +6,10 @@ export default {
    ],
   theme: {
     extend: {
+      fontFamily: {
+           'display': ['Playfair Display', 'serif'],  
+           'sans': ['Inter', 'sans-serif'],            
+         },
       colors:{
         grand:{
           navy:'#0b1a30',
