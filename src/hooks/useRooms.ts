@@ -1,24 +1,40 @@
-import { useQuery } from '@tanstack/react-query'
+import {useState,useEffect} from 'react'
 import * as roomService from '../services/roomService'
 
-export const useRooms = () => {
-  return useQuery({
-    queryKey: ['rooms'],
-    queryFn: roomService.getRooms,
-  })
+export const useRooms=()=>{
+  const [data,setData]=useState(null)
+  const [isLoading,setIsLoading]=useState(true)
+  const [error,setError]=useState(null)
+
+  useEffect(()=>{
+    roomService.getRooms().then((rooms:any)=>{
+      setData(rooms)
+      setIsLoading(false)
+    }).catch(eroor=>{
+      setError(error)
+      setIsLoading(false)
+    })
+  },[])
+  return {data,isLoading,error}
 }
 
-export const useRoom = (id: number) => {
-  return useQuery({
-    queryKey: ['room', id],
-    queryFn: () => roomService.getRoom(id),
-    enabled: !!id,
-  })
+export const useRoom=(id:any)=>{
+  const [data,setData]=useState(null)
+  const [isLoading,setIsLoading]=useState(true)
+  const [error,setError]=useState(null)
+
+  useEffect(()=>{
+    if(!id) return
+
+    roomService.getRoom(id).then((room:any)=>{
+      setData(room)
+      setIsLoading(false)
+    })
+    .catch(error=>{
+      setError(error)
+      setIsLoading(false)
+    })
+  },[id])
+  return {data,isLoading,error}
 }
 
-export const useFilterRooms = (filters: any) => {
-  return useQuery({
-    queryKey: ['rooms', 'filter', filters],
-    queryFn: () => roomService.filterRooms(filters),
-  })
-}

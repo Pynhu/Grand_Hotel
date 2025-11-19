@@ -8,6 +8,7 @@ import RestaurantPage from './pages/RestaurantPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProfilePage from './pages/MyProfilePage'
 import MyBookingsPage from './pages/MyBookingsPage'
+import RoomDetailPage from './pages/RoomDetailPage'
 
 const App=()=>(
   <Routes>
@@ -20,6 +21,7 @@ const App=()=>(
       <Route path="*" element={<NotFoundPage/>}/>
       <Route path="/profile" element={<ProfilePage/>}/>
       <Route path="/my-bookings" element={<MyBookingsPage/>} />
+      <Route path="/rooms/:id" element={<RoomDetailPage/>} />
     </Route>
   </Routes>
 )

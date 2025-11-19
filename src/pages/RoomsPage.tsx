@@ -11,7 +11,7 @@ const RoomsPage = () => {
       </div>
     )
   }
-  if(roomsData.isError){
+  if(roomsData.error){
     return(
       <div className="max-w-6xl mx-auto px-6 py-12">
         <p className="text-xl">błąd podczas ładowania</p>
