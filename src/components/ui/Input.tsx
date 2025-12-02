@@ -11,6 +11,7 @@ interface InputProps{
     required?:boolean
     onKeyPress?:(e: React.KeyboardEvent<HTMLInputElement>)=>void
     className?:string
+    min?:string
 }
 
 const Input=({
@@ -23,7 +24,8 @@ const Input=({
     onKeyPress,
     disabled=false,
     required=false,
-    className=''
+    className='',
+    min
 }:InputProps)=>{
     let labelClass='block text-sm font-medium mb-1'
     if(error){
@@ -65,6 +67,7 @@ const Input=({
                 required={required}
                 onKeyPress={onKeyPress}
                 className={inputClass}
+                min={min}
             />
             {
                 error?(

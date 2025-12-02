@@ -1,18 +1,37 @@
 import { useState } from "react";
+import {useNavigate} from "react-router-dom";
 import Card from "../ui/Card";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
+import {toast} from "sonner";
 
 const Booking = ()=>{
+    const navigate=useNavigate()
     const [checkIn,setCheckIn]=useState('')
     const [checkOut,setCheckOut]=useState('')
     const [roomType,setRoomType]=useState('standard')
     const [guests,setGuests]=useState('1')
 
     const handleSearch=()=>{
-        window.location.href=`/rooms?checkIn=${checkIn}&checkOut=${checkOut}&roomType=${roomType}&guests=${guests}`
+        if(!checkIn || !checkOut){
+            toast.error('Wybierz daty')
+            return
+        }
+        
+        const checkInDate=new Date(checkIn)
+        const checkOutDate=new Date(checkOut)
+        const diff=(checkOutDate.getTime()-checkInDate.getTime())/(1000*60*60*24)
+
+        if (diff<1){
+            toast.error('Mimimalna rezerwacja to 1 noc')
+            return
+        }
+        navigate(`/rooms?checkIn=${checkIn}&checkOut=${checkOut}&roomType=${roomType}&guests=${guests}`)
+
     }
 
+    const today=new Date().toISOString().split('T')[0]
+    const minCheckOut=checkIn ? new Date(new Date(checkIn).getTime() + 86400000).toISOString().split('T')[0]:today
     return(
         <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg rounded-xl" padding="small">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
@@ -21,10 +40,12 @@ const Booking = ()=>{
                     type="date"
                     value={checkIn}
                     onChange={(e)=>setCheckIn(e.target.value)}
+                    min={today}
                     required/>
                 <Input
                     label="Data wyjazdu"
                     type="date"
+                    min={minCheckOut}
                     value={checkOut}
                     onChange={(e)=>setCheckOut(e.target.value)}
                     required

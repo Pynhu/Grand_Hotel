@@ -8,6 +8,7 @@ interface ButtonProp {
     disabled?:boolean
     fullWidth?:boolean
     className?:string
+    type?:'button'|'submit'|'reset'
 }
 
 const Button =({
@@ -17,7 +18,8 @@ const Button =({
     onClick,
     disabled=false,
     fullWidth=false,
-    className=''
+    className='',
+    type='button'
 }:ButtonProp)=>{
     let colorClass=''
     if(variant==='pierwszy'){
@@ -42,6 +44,7 @@ const Button =({
 
     return (
         <button
+            type={type}
             className={`rounded-lg font-medium transition-colors ${colorClass} ${sizeClass} ${widthClass} ${disabledClass} ${className}`}
             onClick={onClick}
             disabled={disabled}
