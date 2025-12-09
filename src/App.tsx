@@ -9,6 +9,8 @@ import NotFoundPage from './pages/NotFoundPage'
 import ProfilePage from './pages/MyProfilePage'
 import MyBookingsPage from './pages/MyBookingsPage'
 import RoomDetailPage from './pages/RoomDetailPage'
+import RestaurantDetailPage from './pages/RestaurantPage'
+
 
 const App=()=>(
   <Routes>
@@ -22,6 +24,7 @@ const App=()=>(
       <Route path="/profile" element={<ProfilePage/>}/>
       <Route path="/my-bookings" element={<MyBookingsPage/>} />
       <Route path="/rooms/:id" element={<RoomDetailPage/>} />
+      <Route path="/restaurant" element={<RestaurantDetailPage/>} />
     </Route>
   </Routes>
 )
