@@ -15,6 +15,7 @@ export interface ReservationRequest {
 
 export interface ReservationResponse extends ReservationRequest {
   id: string
+  userId: string
   totalPrice: number
   status: BookingStatus
 }

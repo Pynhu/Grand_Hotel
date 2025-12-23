@@ -1,7 +1,7 @@
 import Card from "../ui/Card";
 
-const MenuCard=({item}:any)=>{
-    return(
+const MenuCard = ({ item }: any) => {
+    return (
         <Card className="overflow-hidden hover:shadow-xl transition-shadow">
             <div className="relative h-48 bg-gray-200">
                 <img
@@ -12,7 +12,7 @@ const MenuCard=({item}:any)=>{
                 <div className="absolute top-4 right-4 backdrop-blur-md bg-white/90 px-4 py-2 rounded-xl shadow-lg border border-white/20">
                     <span className="font-bold text-grand-navy">{item.price} zł</span>
                 </div>
-                
+
             </div>
 
             <div className="p-4">

@@ -7,12 +7,12 @@ import { Link } from "react-router-dom"
      const [email,setEmail]=useState('')
 
      return(
-       <footer className="bg-grand-cream text-grand-slate py-12 mt-auto border-t border-gray-200">
+       <footer className="bg-grand-cream text-grand-slate py-6 mt-auto border-t border-gray-200">
          <div className="mx-auto max-w-7xl px-8">
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
              <div>
                <h3 className="text-xl font-bold text-grand-gold mb-4">
-                 🏨 Grand Hotel
+                  Grand Hotel
                </h3>
                <p className="text-grand-slate/70 text-sm leading-relaxed mb-6">
                  Luksusowy pobyt z AI. Doświadcz wyjątkowej obsługi.
@@ -62,19 +62,16 @@ import { Link } from "react-router-dom"
                </h3>
                <ul className="space-y-2 text-sm text-grand-slate/70">
                  <li className="flex items-center gap-2">
-                   <span>📧</span>
                    <a href="mailto:info@grandhotel.com" className="hover:text-grand-gold transition-colors">  
                      info@grandhotel.com
                    </a>
                  </li>
                  <li className="flex items-center gap-2">
-                   <span>📞</span>
                    <a href="tel:+48123456789" className="hover:text-grand-gold transition-colors">
                      +48 123 456 789
                    </a>
                  </li>
                  <li className="flex items-center gap-2">
-                   <span>📍</span>
                    <span>ul. Główna 1, Kraków</span>
                  </li>
                </ul>
@@ -97,11 +94,6 @@ import { Link } from "react-router-dom"
                  <li>
                    <Link to="/restaurant" className="text-grand-slate/70 hover:text-grand-gold transition-colors">
                      Restauracja
-                   </Link>
-                 </li>
-                 <li>
-                   <Link to="/chat" className="text-grand-slate/70 hover:text-grand-gold transition-colors">  
-                     Chat AI
                    </Link>
                  </li>
                </ul>

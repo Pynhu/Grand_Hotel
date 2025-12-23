@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  font-family: 'Inter',sans-serif;
+body {
+  font-family: 'Inter', sans-serif;
   background-color: theme('colors.grand.cream');
-  color:theme('colors.grand.slate');
+  color: theme('colors.grand.slate');
   min-height: 100vh;
-} 
+}
 
 
 @layer utilities {
@@ -15,9 +15,8 @@ body{
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
 }
-
-

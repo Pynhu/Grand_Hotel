@@ -14,6 +14,7 @@ export interface MenuItem{
 
 export interface TableReservation{
     id:number
+    userId:string
     date:string
     time:string
     guests:number
