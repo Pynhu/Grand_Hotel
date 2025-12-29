@@ -2,7 +2,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Button from "../ui/Button";
 import UserMenu from "./UserMenu";
-import * as AuthService from "../../services/authService.mock";
+import * as AuthService from "../../services/authService";
 
 const Links = [
     { to: '/', label: "Strona Główna" },
@@ -14,14 +14,14 @@ const Navbar = () => {
     const navigate = useNavigate()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const [userName, setUserName] = useState("Piotr")
+    const [userName, setUserName] = useState("")
 
     useEffect(() => {
-        const checkAuth = () => {
+        const checkAuth = async () => {
             const loggedIn = AuthService.isAuthenticated()
             setIsLoggedIn(loggedIn)
             if (loggedIn) {
-                const user = AuthService.getUser()
+                const user = await AuthService.getUser()
                 if (user) {
                     setUserName(user.firstName)
                 }
@@ -29,8 +29,6 @@ const Navbar = () => {
         }
         checkAuth()
 
-        const interval = setInterval(checkAuth, 1000)
-        return () => clearInterval(interval)
     }, [])
 
     useEffect(() => {

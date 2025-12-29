@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom"
 import { mockMenu } from "../data/mockMenu"
 import MenuCard from "../components/restaurants/MenuCard"
 import { toast } from 'sonner'
-import * as AuthService from '../services/authService.mock'
-
+import * as AuthService from '../services/authService'
+import * as restaurantService from '../services/restaurantService'
 
 
 const RestaurantPage = () => {
@@ -13,11 +13,16 @@ const RestaurantPage = () => {
   const categories = ['Przystawki', 'Dania Główne', 'Desery', 'Napoje']
   const categoryRefs = useRef<any>({})
 
+  const [menu, setMenu] = useState<any>([])
   const [showStickyMenu, setShowStickyMenu] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
 
+  useEffect(() => {
+    restaurantService.getMenu().then(data => setMenu(data))
+  }, [])
+
   const groupedItems = categories.reduce((cat: any, category) => {
-    cat[category] = mockMenu.filter((item: any) => item.category === category)
+    cat[category] = menu.filter((item: any) => item.category === category)
     return cat
   }, {})
 

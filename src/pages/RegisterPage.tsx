@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'sonner'
 import Input from '../components/ui/Input'
 import Button from '../components/ui/Button'
-import * as AuthService from '../services/authService.mock'
+import * as AuthService from '../services/authService'
 
 
 const RegisterPage = () => {
@@ -37,7 +37,7 @@ const RegisterPage = () => {
         try {
             await AuthService.register({ email, password, firstName, lastName, phone })
             toast.success("Zarejestrowano")
-            navigate('/')
+            window.location.href = '/'
         } catch (error) {
             toast.error("blad rejestracji")
         } finally {

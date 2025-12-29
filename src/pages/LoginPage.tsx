@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'sonner'
 import Input from '../components/ui/Input'
 import Button from '../components/ui/Button'
-import * as AuthService from '../services/authService.mock'
+import * as AuthService from '../services/authService'
 
 
 const LoginPage = () => {
@@ -24,7 +24,7 @@ const LoginPage = () => {
         try {
             await AuthService.login({ email, password })
             toast.success("Zalogowano")
-            navigate('/')
+            window.location.href = '/'
         } catch (error) {
             toast.error("nieprawidlowe dane")
         } finally {
