@@ -111,7 +111,7 @@ export const cancelTableReservation = async (id: number): Promise<void> => {
         }
         return
     }
-    await httpClient.delete(`/api/v1/restaurant/revervations/${id}`)
+    await httpClient.delete(`/api/v1/restaurant/reservations/${id}`)
 }
 
 

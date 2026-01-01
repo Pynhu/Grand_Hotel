@@ -1,10 +1,4 @@
-export type RoomType =
-  |'Standard'
-  |'Deluxe Suite'
-  |'Junior Suite'
-  |'Grand Suite'
-  |'Family'
-
+export type RoomType = string
 export const ROOM_TYPES: RoomType[] = [
   'Standard',
   'Deluxe Suite',
@@ -15,14 +9,17 @@ export const ROOM_TYPES: RoomType[] = [
 
 export interface Room {
   id: number
-  roomType: RoomType 
+  roomType: RoomType
   pricePerNight: number
-  capacity: number
+  capacityAdults: number
+  capacityChildren: number
   amenities: string[]
-  name?: string 
-  description?: string 
+  imageUrls: string[]
+  name?: string
+  description?: string
   heroImage?: string
   gallery?: string[]
+
 }
 
 export interface RoomFilter {

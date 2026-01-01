@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import type { Room } from '../../types/room.types'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
-
+import { BASE_URL } from '../../utils/api'
 
 interface RoomCardProps {
     room: Room
@@ -13,7 +13,7 @@ export const RoomCard = ({ room }: RoomCardProps) => {
     return (
         <Card className="overflow-hidden hove:shadow-xl transition-shadow">
             <div className="relative h-48 bg-gray-200">
-                <img src={room.heroImage || 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600'}
+                <img src={room.imageUrls[0] ? `${BASE_URL}${room.imageUrls[0]}` : ''}
                     alt={room.name} className="w-full h-full object-cover" />
                 <div className="absolute top-3 right-3 bg-grand-gold px-3 py-1 rounded-lg">
                     <span className="font-bold">{room.pricePerNight}zł</span>

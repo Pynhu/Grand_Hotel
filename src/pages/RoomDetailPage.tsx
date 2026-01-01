@@ -4,7 +4,8 @@ import Button from "../components/ui/Button"
 import Card from "../components/ui/Card"
 import type { Room } from "../types/room.types"
 import { toast } from 'sonner'
-import * as AuthService from '../services/authService.mock'
+import * as AuthService from '../services/authService'
+import { BASE_URL } from '../utils/api'
 
 const RoomDetailPage = () => {
 
@@ -40,16 +41,14 @@ const RoomDetailPage = () => {
             <div className="grid md:grid-cols-2 gap-8">
                 <div>
                     <img
-                        src={room.heroImage || 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600&q=80'}
+                        src={room.imageUrls?.[0] ? `${BASE_URL}${room.imageUrls[0]}` : 'https://images.unsplash.com/...'}
                         alt={room.name || room.roomType}
                         className="w-full h-96 object-cover rounded-lg shadow-lg"
                     />
-                    {room.gallery && room.gallery.length > 0 && (
+                    {room.imageUrls && room.imageUrls.length > 1 && (
                         <div className="grid grid-cols-2 gap-4 mt-4">
-                            {room.gallery.map((img: string, index: number) => (
-                                <img
-                                    key={index}
-                                    src={img}
+                            {room.imageUrls.slice(1).map((url: string, index: number) => (
+                                <img key={index} src={`${BASE_URL}${url}`}
                                     alt={room.name}
                                     className="w-full h-48 object-cover rounded-lg"
                                 />
@@ -67,7 +66,7 @@ const RoomDetailPage = () => {
                     <Card className="mb-6">
                         <h3 className="text-3xl font-bold text-grand-gold mb-6">Informacje</h3>
                         <div className="space-y-2 text-gray-600">
-                            <p>Do {room.capacity} osób</p>
+                            <p>Do {Number(room.capacityAdults) + Number(room.capacityChildren)} osób</p>
                             <p>{room.roomType}</p>
                         </div>
                     </Card>
