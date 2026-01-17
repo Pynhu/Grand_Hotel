@@ -127,7 +127,7 @@ const Navbar = () => {
                         <hr className="my-2 border-gray-200" />
                         {isLoggedIn ? (
                             <>
-                                <Link to="/my-profile" className="text-lg font-medium text-grand-slate py-3 px-4 hover:bg-gray-100 rounded-lg"
+                                <Link to="/profile" className="text-lg font-medium text-grand-slate py-3 px-4 hover:bg-gray-100 rounded-lg"
                                     onClick={() => setMobileMenuOpen(false)}>Moj Profil</Link>
                                 <Link to="/my-bookings" className="text-lg font-medium text-grand-slate py-3 px-4 hover:bg-gray-100 rounded-lg"
                                     onClick={() => setMobileMenuOpen(false)}>Moje Rezerwacje</Link>

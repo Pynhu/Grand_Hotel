@@ -1,53 +1,47 @@
 import React from "react";
 
-interface ButtonProp {
+interface ButtonProp extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
-    variant?:'pierwszy'|'drugi'|'linie'
-    size?:'male'|'srednie'|'duze'
-    onClick?:()=>void
-    disabled?:boolean
-    fullWidth?:boolean
-    className?:string
-    type?:'button'|'submit'|'reset'
+    variant?: 'pierwszy' | 'drugi' | 'linie'
+    size?: 'male' | 'srednie' | 'duze'
+    fullWidth?: boolean
 }
 
-const Button =({
+const Button = ({
     children,
-    variant='pierwszy',
-    size='male',
-    onClick,
-    disabled=false,
-    fullWidth=false,
-    className='',
-    type='button'
-}:ButtonProp)=>{
-    let colorClass=''
-    if(variant==='pierwszy'){
+    variant = 'pierwszy',
+    size = 'male',
+    fullWidth = false,
+    className = '',
+    type = 'button',
+    ...props
+}: ButtonProp) => {
+    let colorClass = ''
+    if (variant === 'pierwszy') {
         colorClass = 'bg-grand-gold text-grand-navy hover:bg-grand-gold/90'
-    }else if (variant==='drugi'){
+    } else if (variant === 'drugi') {
         colorClass = 'bg-grand-navy text-white hover:bg-grand-navy/90'
-    }else if (variant==='linie'){
-        colorClass='border-2 border-grand-gold text-grand-gold hover:bg-grand-gold hover:text-grand-navy'
+    } else if (variant === 'linie') {
+        colorClass = 'border-2 border-grand-gold text-grand-gold hover:bg-grand-gold hover:text-grand-navy'
     }
 
-    let sizeClass=''
-    if (size==='male') {
-        sizeClass='px-3 py-1.5 text-sm'
-    } else if (size==='srednie') {
-        sizeClass='px-4 py-2 text-base'
-    } else if (size==='duze') {
-        sizeClass='px-6 py-3 text-lg'
+    let sizeClass = ''
+    if (size === 'male') {
+        sizeClass = 'px-3 py-1.5 text-sm'
+    } else if (size === 'srednie') {
+        sizeClass = 'px-4 py-2 text-base'
+    } else if (size === 'duze') {
+        sizeClass = 'px-6 py-3 text-lg'
     }
 
-    const widthClass=fullWidth?'w-full':''
-    const disabledClass=disabled?'opacity-50 cursor-not-allowed':''
+    const widthClass = fullWidth ? 'w-full' : ''
+    const disabledClass = props.disabled ? 'opacity-50 cursor-not-allowed' : ''
 
     return (
         <button
             type={type}
             className={`rounded-lg font-medium transition-colors ${colorClass} ${sizeClass} ${widthClass} ${disabledClass} ${className}`}
-            onClick={onClick}
-            disabled={disabled}
+            {...props}
         >
             {children}
         </button>

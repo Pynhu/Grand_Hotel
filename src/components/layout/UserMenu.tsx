@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 interface UserMenuProps{
     userName?:string
     onLogout:()=>void
@@ -29,7 +30,6 @@ const UserMenu=({userName,onLogout}:UserMenuProps)=>{
                 className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-grand-cream transition-colors">
 
                 <div className="w-9 h-9 rounded-full bg-grand-gold flex items-center justify-center text-grand-navy font-bold text-sm">
-                    {/*avatar*/}
                     {userName?.substring(0,2).toUpperCase()}
                 </div> 
                 <span className="text-sm font-medium text-grand-slate">

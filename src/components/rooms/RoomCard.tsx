@@ -11,7 +11,7 @@ interface RoomCardProps {
 
 export const RoomCard = ({ room }: RoomCardProps) => {
     return (
-        <Card className="overflow-hidden hove:shadow-xl transition-shadow">
+        <Card className="overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
             <div className="relative h-48 bg-gray-200">
                 <img src={room.imageUrls[0] ? `${BASE_URL}${room.imageUrls[0]}` : ''}
                     alt={room.name} className="w-full h-full object-cover" />
@@ -20,7 +20,7 @@ export const RoomCard = ({ room }: RoomCardProps) => {
                     <span className="text-sm text-white/80">/noc</span>
                 </div>
             </div>
-            <div className="p-4">
+            <div className="p-4 flex-grow flex flex-col">
                 <h3 className="text-xl font-bold text-grand-navy mb-2">
                     {room.name || room.roomType}
                 </h3>
@@ -29,7 +29,7 @@ export const RoomCard = ({ room }: RoomCardProps) => {
                         {room.description}
                     </p>
                 )}
-                <div>
+                <div className="flex flex-wrap gap-2">
                     {room.amenities.slice(0, 3).map((i, j) => (
                         <span key={j} className="text-xs bg-gray-100 px-2 py-1 rounded">
                             {i}
@@ -37,7 +37,7 @@ export const RoomCard = ({ room }: RoomCardProps) => {
                     ))}
                 </div>
 
-                <Link to={`/rooms/${room.id}`}>
+                <Link to={`/rooms/${room.id}`} className="mt-auto">
                     <Button variant="pierwszy" className="w-full mt-4">
                         Zobacz pokój
                     </Button>

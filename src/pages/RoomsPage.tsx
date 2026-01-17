@@ -39,7 +39,7 @@ const RoomsPage = () => {
     filteredRooms = filteredRooms.filter((room: any) => room.pricePerNight <= Number(maxPrice))
   }
   if (guests) {
-    filteredRooms = filteredRooms.filter((room: any) => room.capacity >= Number(guests))
+    filteredRooms = filteredRooms.filter((room: any) => (room.capacityAdults + room.capacityChildren) >= Number(guests))
   }
   if (roomType) {
     filteredRooms = filteredRooms.filter((room: any) => room.roomType.toLowerCase().includes(roomType.toLowerCase()))

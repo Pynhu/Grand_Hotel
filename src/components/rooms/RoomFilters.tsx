@@ -105,15 +105,6 @@ export const RoomFilters = ({
                         <option value="suite">Suite</option>
                     </select>
                 </div>
-                <div>
-                    <Input
-                        label="Guests"
-                        type="number"
-                        min="1"
-                        value={guests}
-                        onChange={(e) => setGuests(e.target.value)}
-                        placeholder="1" />
-                </div>
 
 
             </div>

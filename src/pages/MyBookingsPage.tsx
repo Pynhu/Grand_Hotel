@@ -118,19 +118,21 @@ const MyBookingsPage = () => {
                     <div className="grid gap-4">
                         {tableReservations.map((reservations) => (
                             <Card key={reservations.id}>
-                                <div>
-                                    <h3 className="font-bold text-grand-navy mb-2">
-                                        Stolik #{String(reservations.id).slice(0, 8)}
-                                    </h3>
-                                    <p>Data: {reservations.date}</p>
-                                    <p>Godzina: {reservations.time}</p>
-                                    <p>Liczba gości: {reservations.guests}</p>
+                                <div className="flex justify-between items-center">
+                                    <div>
+                                        <h3 className="font-bold text-grand-navy mb-2">
+                                            Stolik #{String(reservations.id).slice(0, 8)}
+                                        </h3>
+                                        <p>Data: {reservations.date}</p>
+                                        <p>Godzina: {reservations.time}</p>
+                                        <p>Liczba gości: {reservations.guests}</p>
+                                    </div>
+                                    <Button
+                                        variant="linie"
+                                        onClick={() => handleCancelTable(reservations.id)}>
+                                        Anuluj Rezerwacje
+                                    </Button>
                                 </div>
-                                <Button
-                                    variant="linie"
-                                    onClick={() => handleCancelTable(reservations.id)}>
-                                    Anuluj Rezerwacje
-                                </Button>
                             </Card>
                         ))}
                     </div>
