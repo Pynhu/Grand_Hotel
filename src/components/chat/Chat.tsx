@@ -141,7 +141,7 @@ const Chat = () => {
   }
 
   return (
-    <Card className="w-full max-w-3xl mx-auto backdrop-blur-lg bg-white/95 transition-all duration-300 relative overflow-hidden flex flex-col h-[600px]">
+    <Card className="w-full max-w-3xl mx-auto backdrop-blur-lg bg-white/95 transition-all duration-300 relative overflow-hidden flex flex-col h-[900px]">
       <div className="border-b border-gray-200 pb-4 mb-4 flex justify-between items-center relative z-10 shrink-0">
         <div>
           <h2 className="text-2xl font-bold text-grand-navy flex items-center gap-2">
